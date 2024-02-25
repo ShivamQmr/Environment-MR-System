@@ -1,0 +1,61 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-image: url(''); /* Replace 'background.jpg' with your image file */
+    background-size: cover;
+    background-position: center;
+    color: #333; /* Change text color to contrast with background */
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.7); /* Add a semi-transparent white background for better readability */
+    backdrop-filter: blur(5px); /* Add a blur effect to the background */
+    padding: 20px;
+}
+
+.logo {
+    font-size: 1.5rem;
+}
+
+.nav-links {
+    list-style-type: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-right: 20px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #333; /* Change text color to contrast with background */
+    transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: #ffd700; /* Change to desired hover color */
+}
+
+/* Sections */
+section {
+    padding: 100px 0;
+    text-align: center;
+}
+
+section h1, section h2 {
+    margin-bottom: 20px;
+}
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
