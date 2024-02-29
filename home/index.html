@@ -1,6 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <style>
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+    
+        .info-table th,
+        .info-table td {
+            padding: 10px;
+            text-align: left;
+        }
+    
+        .info-box {
+            padding: 10px;
+            border: 1px solid #dddddd;
+            transition: transform 0.3s ease;
+            border-radius: 5px;
+            box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+        }
+    
+        .info-box:hover {
+            transform: translateY(-3px);
+            background-color: #f0f0f0;
+        }
+    </style>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Green Earth - Conservation Portfolio</title>
@@ -55,6 +81,61 @@
         </div>
     </div>
 </div>
+
+<!-- -----------------------------ONGOING----------------------------- -->
+<div class="ongoing">
+<h1> ONGOING EVENTS</h1>
+<?php
+
+$host = "localhost";
+$user = "root";
+$password = "";
+$db = "hiking";
+
+$conn = new mysqli($host, $user, $password, $db);
+
+if ($conn->connect_error === true) {
+    echo "Error Connecting the database" . $conn->connect_errno;
+}
+
+$sql = "SELECT OVERVIEW, SPECIES, DETAILS, DAY FROM ongoings";
+
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    echo "<table style='border-collapse: collapse; width: 100%;'>";
+    echo "<tr style='background-color: #f2f2f2;'>";
+    echo "<th style='border: 1px solid #dddddd; text-align: left; padding: 8px;'>OVERVIEW</th>";
+    echo "<th style='border: 1px solid #dddddd; text-align: left; padding: 8px;'>SPECIES OR TYPES</th>";
+    echo "<th style='border: 1px solid #dddddd; text-align: left; padding: 8px;'>DETAILS</th>";
+    echo "<th style='border: 1px solid #dddddd; text-align: left; padding: 8px;'>DESIGNATED DATE</th>";
+    echo "</tr>";
+
+    while ($rows = $result->fetch_assoc()) {
+        echo "<tr>";
+        echo "<td style='border: 1px solid #dddddd; padding: 8px;'>";
+        echo "<div class='info-box'>" . $rows["OVERVIEW"] . "</div>";
+        echo "</td>";
+        echo "<td style='border: 1px solid #dddddd; padding: 8px;'>";
+        echo "<div class='info-box'>" . $rows["SPECIES"] . "</div>";
+        echo "</td>";
+        echo "<td style='border: 1px solid #dddddd; padding: 8px;'>";
+        echo "<div class='info-box'>" . $rows["DETAILS"] . "</div>";
+        echo "</td>";
+        echo "<td style='border: 1px solid #dddddd; padding: 8px;'>";
+        echo "<div class='info-box'>" . $rows["DAY"] . "</div>";
+        echo "</td>";
+        echo "</tr>";
+    }
+
+    echo "</table>";
+}
+
+$conn->close();
+?>
+
+</div>
+
 <!-- -----------------------------Gallery----------------------------- -->
 <div id="gallery">
     <div class="container">
