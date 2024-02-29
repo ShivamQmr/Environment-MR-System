@@ -11,16 +11,16 @@
     
 <div class="form">
     <form action="script.php" method="POST">
-    Species or Name:<input type="text" name="Species"><br>
-    Details (of Plant or Animal):<input type="text" name="Details"><br>
+    Species or Name:<input type="text" name="Species" required><br>
+    Details (of Plant or Animal):<input type="text" name="Details" required><br>
     Type:<br>
         <input type="radio" name="Type">Rare<br>
         <input type="radio" name="Type">Venomonous<br>
         <input type="radio" name="Type">Herbs<br>
         <input type="radio" name="Type">Medicinal Plants<br>
         <input type="radio" name="Type">General/Local<br>
-        <input type="textarea" name="Ongoings" placeholder="What did you see?"><br>
-        <button type="submit">Report action</button>
+        <input type="textarea" name="Ongoings" placeholder="What did you see?" required><br>
+        <button type="submit" onclick="submit()">Report action</button>
     </form>
 </div>
 
