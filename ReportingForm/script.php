@@ -20,6 +20,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 $sql = "INSERT INTO reports (SPECIES, DETAILS, TYPE, ONGOINGS) VALUES ('$species', '$details', '$type', '$event')";
 
 if($conn->query($sql)){
-    echo "Reported successfully";
+    echo "<h1>Reported successfully</h1>";
 }
 ?>
