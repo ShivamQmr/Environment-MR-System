@@ -22,4 +22,6 @@ $sql = "INSERT INTO reports (SPECIES, DETAILS, TYPE, ONGOINGS) VALUES ('$species
 if($conn->query($sql)){
     echo "<h1>Reported successfully</h1>";
 }
+
+$conn->close();
 ?>
