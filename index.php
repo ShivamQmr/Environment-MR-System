@@ -30,5 +30,39 @@
                 </div>
             </div>
         </div>
+
+<br><br>
+
+<div>
+<?php
+
+$host = "localhost";
+$user = "root";
+$password = "";
+$db = "hiking";
+
+$conn = new mysqli($host, $user, $password, $db);
+
+if($conn->connect_error === True){
+    echo "Error Connecting the database". $conn->connect_errno;
+}
+
+$sql = "SELECT OVERVIEW, SPECIES, DETAILS, DAY FROM ongoings";
+
+$result = $conn->query($sql);
+
+if($result->num_rows>0){
+    echo "<table><tr><th>OVERVIEW</th><th>SPECIES OR TYPES</th><th>DETAILS</th><th>DESIGNATED DATE</th>";
+    while($rows=$result->fetch_assoc()){
+        echo "<tr><td>". $rows["OVERVIEW"]. "</td><td>". $rows["SPECIES"]. "</td><td>". $rows["DETAILS"]."</td><td>". $rows["DAY"] . "</td></table>";
+    } 
+}
+
+$conn->close();
+?>
+
+</div>
+
+
     </body>
 </html>

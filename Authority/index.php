@@ -18,7 +18,7 @@
         <button type="submit" onclick="submit()">Report action</button>
     </form>
 
-    
+
 
 <br><br><br>
 
@@ -48,6 +48,7 @@ if($result->num_rows>0){
     } 
 }
 
+$conn->close();
 ?>
 
 </div>
